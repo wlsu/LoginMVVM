@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3B20381E2635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
+		3B20381F2635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
+		3B2038202635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
 		3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709A2635AADC00575E62 /* AppDelegate.swift */; };
 		3BD8709D2635AADC00575E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709C2635AADC00575E62 /* SceneDelegate.swift */; };
 		3BD8709F2635AADC00575E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709E2635AADC00575E62 /* ViewController.swift */; };
@@ -35,6 +38,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3B20381D2635C847003C3205 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3BD870972635AADC00575E62 /* SCMPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCMPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD8709A2635AADC00575E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD8709C2635AADC00575E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -76,6 +80,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3B20381A2635C7C0003C3205 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		3B20381B2635C7C6003C3205 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				3B20381D2635C847003C3205 /* ApiService.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		3B20381C2635C7EF003C3205 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		3BD8708E2635AADC00575E62 = {
 			isa = PBXGroup;
 			children = (
@@ -101,6 +127,9 @@
 			children = (
 				3BD8709A2635AADC00575E62 /* AppDelegate.swift */,
 				3BD8709C2635AADC00575E62 /* SceneDelegate.swift */,
+				3B20381C2635C7EF003C3205 /* Model */,
+				3B20381B2635C7C6003C3205 /* Network */,
+				3B20381A2635C7C0003C3205 /* View */,
 				3BD8709E2635AADC00575E62 /* ViewController.swift */,
 				3BD870A02635AADC00575E62 /* Main.storyboard */,
 				3BD870A32635AADF00575E62 /* Assets.xcassets */,
@@ -260,6 +289,7 @@
 			files = (
 				3BD8709F2635AADC00575E62 /* ViewController.swift in Sources */,
 				3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */,
+				3B20381E2635C847003C3205 /* ApiService.swift in Sources */,
 				3BD8709D2635AADC00575E62 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -268,6 +298,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B20381F2635C847003C3205 /* ApiService.swift in Sources */,
 				3BD870B22635AADF00575E62 /* SCMPTestTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -276,6 +307,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3B2038202635C847003C3205 /* ApiService.swift in Sources */,
 				3BD870BD2635AADF00575E62 /* SCMPTestUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
