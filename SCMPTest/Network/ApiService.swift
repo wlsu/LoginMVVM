@@ -7,24 +7,98 @@
 
 import Foundation
 
+enum SCMPApiError: Error {
+    case parseJsonFailed
+    case unexpected(code: Int)
+}
+
+extension SCMPApiError: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .parseJsonFailed:
+            return "parse json failed"
+        case .unexpected(code: _):
+            return "An unexpected error occurred."
+        }
+    }
+}
+
 enum ApiService {
+    
+    
+    
+    
+    
+    enum RequestType: String {
+        case POST
+        case GET
+        case PUT
+        case DELETE
+    }
     
     private static let loginApiString = "https://reqres.in/api/login?delay=5"
     
-    static func loginApiRequest() {
+    static func loginApiRequest(email: String, password: String, completion:@escaping (LoginApiRes?) -> Void   ) {
         guard let url = URL(string: loginApiString) else {
+            completion(nil)
             return
         }
-        makeRequest(url: url)
+
+        makeRequestReturnDict(url: url, method: .POST, parameters: ["email" : email, "password": password]) { (dict, error) in
+            guard let theDict = dict else {
+                completion(nil)
+                return
+            }
+            completion(LoginApiRes(parameters: theDict))
+        }
+    }
+    
+    static func makeRequestReturnDict(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  ([String:Any]?, Error?) -> Void) {
+        makeRequest(url: url, method: method, parameters: parameters) { (object, error) in
+            guard let theObject = object, let dict = theObject as? [String: Any] else {
+                completionHandler(nil, error)
+                return
+            }
+            completionHandler(dict, nil)
+        }
     }
     
     
-    
-    private static func makeRequest(url: URL) {
-        let task = URLSession.shared.dataTask(with: url) {(data, response, error) in
-            guard let data = data else { return }
-            print(String(data: data, encoding: .utf8)!)
+
+    private static func makeRequest(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  (Any?, Error?) -> Void) {
+        var request = URLRequest(url: url)
+        request.httpMethod = method.rawValue
+        
+        if method == .POST {
+            request.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            
+            // compose http body
+            if let theParameters = parameters {
+                let jsonData = try? JSONSerialization.data(withJSONObject: theParameters)
+                request.httpBody = jsonData
+            }
+            
         }
+        
+        
+        let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
+            if let data = data {
+                do {
+                    let json = try JSONSerialization.jsonObject(with: data, options: [])
+                    completionHandler(json, nil)
+                    
+                } catch {
+                    completionHandler(nil, SCMPApiError.parseJsonFailed)
+                }
+            } else if let error = error {
+                // no data, but got error
+                completionHandler(nil,error)
+            } else {
+                // no data, no error
+                completionHandler(nil, SCMPApiError.unexpected(code: -1))
+            }
+        }
+
 
         task.resume()
     }
