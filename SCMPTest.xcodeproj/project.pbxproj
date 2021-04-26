@@ -80,26 +80,12 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		3B20381A2635C7C0003C3205 /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		3B20381B2635C7C6003C3205 /* Network */ = {
 			isa = PBXGroup;
 			children = (
 				3B20381D2635C847003C3205 /* ApiService.swift */,
 			);
 			path = Network;
-			sourceTree = "<group>";
-		};
-		3B20381C2635C7EF003C3205 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		3BD8708E2635AADC00575E62 = {
@@ -126,11 +112,12 @@
 			isa = PBXGroup;
 			children = (
 				3BD8709A2635AADC00575E62 /* AppDelegate.swift */,
+				90F2B3FF263688A8007D21CF /* Utilities */,
 				3BD8709C2635AADC00575E62 /* SceneDelegate.swift */,
-				3B20381C2635C7EF003C3205 /* Model */,
+				90F2B40126368922007D21CF /* ViewModels */,
+				90F2B400263688BD007D21CF /* Models */,
 				3B20381B2635C7C6003C3205 /* Network */,
-				3B20381A2635C7C0003C3205 /* View */,
-				3BD8709E2635AADC00575E62 /* ViewController.swift */,
+				90F2B406263689B7007D21CF /* Views */,
 				3BD870A02635AADC00575E62 /* Main.storyboard */,
 				3BD870A32635AADF00575E62 /* Assets.xcassets */,
 				3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */,
@@ -155,6 +142,35 @@
 				3BD870BE2635AADF00575E62 /* Info.plist */,
 			);
 			path = SCMPTestUITests;
+			sourceTree = "<group>";
+		};
+		90F2B3FF263688A8007D21CF /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		90F2B400263688BD007D21CF /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		90F2B40126368922007D21CF /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		90F2B406263689B7007D21CF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				3BD8709E2635AADC00575E62 /* ViewController.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
