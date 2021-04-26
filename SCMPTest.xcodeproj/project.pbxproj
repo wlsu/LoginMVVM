@@ -12,8 +12,7 @@
 		3B2038202635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
 		3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709A2635AADC00575E62 /* AppDelegate.swift */; };
 		3BD8709D2635AADC00575E62 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709C2635AADC00575E62 /* SceneDelegate.swift */; };
-		3BD8709F2635AADC00575E62 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709E2635AADC00575E62 /* ViewController.swift */; };
-		3BD870A22635AADC00575E62 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD870A02635AADC00575E62 /* Main.storyboard */; };
+		3BD8709F2635AADC00575E62 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD8709E2635AADC00575E62 /* LoginViewController.swift */; };
 		3BD870A42635AADF00575E62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3BD870A32635AADF00575E62 /* Assets.xcassets */; };
 		3BD870A72635AADF00575E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */; };
 		3BD870B22635AADF00575E62 /* SCMPTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD870B12635AADF00575E62 /* SCMPTestTests.swift */; };
@@ -30,6 +29,7 @@
 		909C6B2D2636E2C50047FA70 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */; };
 		909C6B2E2636E2C50047FA70 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */; };
 		909C6B2F2636E2C50047FA70 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */; };
+		909C6B3B2636E5020047FA70 /* LoginDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B3A2636E5020047FA70 /* LoginDataTests.swift */; };
 		90F2B40B26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
 		90F2B40C26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
 		90F2B40D26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
@@ -57,8 +57,7 @@
 		3BD870972635AADC00575E62 /* SCMPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCMPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD8709A2635AADC00575E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD8709C2635AADC00575E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		3BD8709E2635AADC00575E62 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		3BD870A12635AADC00575E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3BD8709E2635AADC00575E62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BD870A32635AADF00575E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BD870A62635AADF00575E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BD870A82635AADF00575E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -72,6 +71,7 @@
 		909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutWrapper.swift; sourceTree = "<group>"; };
 		909C6B252636DFE40047FA70 /* LoginApiRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiRes.swift; sourceTree = "<group>"; };
 		909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		909C6B3A2636E5020047FA70 /* LoginDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataTests.swift; sourceTree = "<group>"; };
 		90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextfieldsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -132,13 +132,12 @@
 			isa = PBXGroup;
 			children = (
 				3BD8709A2635AADC00575E62 /* AppDelegate.swift */,
-				90F2B3FF263688A8007D21CF /* Utilities */,
 				3BD8709C2635AADC00575E62 /* SceneDelegate.swift */,
+				90F2B3FF263688A8007D21CF /* Utilities */,
 				90F2B40126368922007D21CF /* ViewModels */,
 				90F2B400263688BD007D21CF /* Models */,
 				3B20381B2635C7C6003C3205 /* Network */,
 				90F2B406263689B7007D21CF /* Views */,
-				3BD870A02635AADC00575E62 /* Main.storyboard */,
 				3BD870A32635AADF00575E62 /* Assets.xcassets */,
 				3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */,
 				3BD870A82635AADF00575E62 /* Info.plist */,
@@ -150,6 +149,7 @@
 			isa = PBXGroup;
 			children = (
 				3BD870B12635AADF00575E62 /* SCMPTestTests.swift */,
+				909C6B3A2636E5020047FA70 /* LoginDataTests.swift */,
 				3BD870B32635AADF00575E62 /* Info.plist */,
 			);
 			path = SCMPTestTests;
@@ -192,7 +192,7 @@
 		90F2B406263689B7007D21CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3BD8709E2635AADC00575E62 /* ViewController.swift */,
+				3BD8709E2635AADC00575E62 /* LoginViewController.swift */,
 				90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */,
 			);
 			path = Views;
@@ -303,7 +303,6 @@
 			files = (
 				3BD870A72635AADF00575E62 /* LaunchScreen.storyboard in Resources */,
 				3BD870A42635AADF00575E62 /* Assets.xcassets in Resources */,
-				3BD870A22635AADC00575E62 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -328,7 +327,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3BD8709F2635AADC00575E62 /* ViewController.swift in Sources */,
+				3BD8709F2635AADC00575E62 /* LoginViewController.swift in Sources */,
 				909C6B262636DFE40047FA70 /* LoginApiRes.swift in Sources */,
 				3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */,
 				909C6B1F2636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */,
@@ -346,6 +345,7 @@
 			files = (
 				3B20381F2635C847003C3205 /* ApiService.swift in Sources */,
 				909C6B192636B4CB0047FA70 /* Box.swift in Sources */,
+				909C6B3B2636E5020047FA70 /* LoginDataTests.swift in Sources */,
 				3BD870B22635AADF00575E62 /* SCMPTestTests.swift in Sources */,
 				909C6B272636DFE40047FA70 /* LoginApiRes.swift in Sources */,
 				90F2B40C26369464007D21CF /* LoginTextfieldsView.swift in Sources */,
@@ -384,14 +384,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		3BD870A02635AADC00575E62 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				3BD870A12635AADC00575E62 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -527,6 +519,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5SSDM7RGG;
 				INFOPLIST_FILE = SCMPTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -546,6 +539,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C5SSDM7RGG;
 				INFOPLIST_FILE = SCMPTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
