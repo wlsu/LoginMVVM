@@ -8,6 +8,9 @@
 import Foundation
 
 class LoginViewModel {
+    
+    var email = Box("")
+    
     init() {
        // init func
     }

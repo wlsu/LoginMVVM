@@ -19,7 +19,6 @@ class LoginTextFieldsView: UIView {
         super.init(frame: frame)
         
         // setup views here
-        
         loginStack.axis = .vertical
         loginStack.alignment = .fill
         loginStack.distribution = .fillProportionally
@@ -30,9 +29,6 @@ class LoginTextFieldsView: UIView {
             loginStack.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             loginStack.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
-        
-        
-        
         
         // 2 text fields stack view
         let textfieldsStack = UIStackView()
@@ -65,12 +61,10 @@ class LoginTextFieldsView: UIView {
         textfieldsStack.addArrangedSubview(emailTextfield)
         textfieldsStack.addArrangedSubview(pwdTextfield)
         
-        
-        
-
         // Button
         loginBtn.setTitle("Login", for: UIControl.State.normal)
         loginBtn.setTitleColor(UIColor.black, for: .normal)
+        loginBtn.addTarget(self, action: #selector(loginButtonPressed(_:)), for: UIControl.Event.touchUpInside)
         loginStack.addArrangedSubview(loginBtn)
         NSLayoutConstraint.activate([
             loginBtn.heightAnchor.constraint(equalToConstant: 45),
@@ -78,6 +72,12 @@ class LoginTextFieldsView: UIView {
             loginBtn.trailingAnchor.constraint(equalTo: loginStack.trailingAnchor)
         ])
         
+        
+    }
+    
+    
+    
+    @objc func loginButtonPressed(_ sender: UIButton) {
         
     }
     
