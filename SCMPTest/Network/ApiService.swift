@@ -24,11 +24,6 @@ extension SCMPApiError: CustomStringConvertible {
 }
 
 enum ApiService {
-    
-    
-    
-    
-    
     enum RequestType: String {
         case POST
         case GET
@@ -36,9 +31,9 @@ enum ApiService {
         case DELETE
     }
     
-    private static let loginApiString = "https://reqres.in/api/login?delay=5"
+    private static let loginApiString = "https://reqres.in/api/login?delay=1"
     
-    static func loginApiRequest(email: String, password: String, completion:@escaping (LoginStatus?) -> Void   ) {
+    public static func loginApiRequest(email: String, password: String, completion:@escaping (LoginStatus?) -> Void   ) {
         guard let url = URL(string: loginApiString) else {
             completion(nil)
             return
@@ -64,7 +59,7 @@ enum ApiService {
         }
     }
     
-    static func makeRequestReturnDict(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  ([String:Any]?, Error?) -> Void) {
+    private static func makeRequestReturnDict(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  ([String:Any]?, Error?) -> Void) {
         makeRequest(url: url, method: method, parameters: parameters) { (object, error) in
             guard let theObject = object, let dict = theObject as? [String: Any] else {
                 completionHandler(nil, error)
@@ -74,8 +69,6 @@ enum ApiService {
         }
     }
     
-    
-
     private static func makeRequest(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  (Any?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
@@ -88,9 +81,7 @@ enum ApiService {
                 let jsonData = try? JSONSerialization.data(withJSONObject: theParameters)
                 request.httpBody = jsonData
             }
-            
         }
-        
         
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let data = data {
@@ -99,31 +90,23 @@ enum ApiService {
                     DispatchQueue.main.async {
                         completionHandler(json, nil)
                     }
-                    
-                    
                 } catch {
                     DispatchQueue.main.async {
                         completionHandler(nil, SCMPApiError.parseJsonFailed)
                     }
-                    
                 }
             } else if let error = error {
                 // no data, but got error
                 DispatchQueue.main.async {
                     completionHandler(nil,error)
                 }
-                
             } else {
                 // no data, no error
                 DispatchQueue.main.async {
                     completionHandler(nil, SCMPApiError.unexpected(code: -1))
                 }
-                
-                
             }
         }
-
-
         task.resume()
     }
 }

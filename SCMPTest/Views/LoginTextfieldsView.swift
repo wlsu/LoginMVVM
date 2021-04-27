@@ -101,7 +101,6 @@ class LoginTextFieldsView: UIView {
     
     @objc func loginButtonPressed(_ sender: UIButton) {
         
-        print("on click login button")
         guard let email = emailTextfield.text else {
             // trigger VC to alert
             return

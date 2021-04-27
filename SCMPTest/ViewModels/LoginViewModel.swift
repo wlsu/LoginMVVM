@@ -12,7 +12,7 @@ protocol LoginViewModelProtocol {
 }
 
 class LoginViewModel {
-    
+    // User shared as this ViewModel will be used in diffrent Views' instance
     static var shared = LoginViewModel()
     
     var delegate: LoginViewModelProtocol?
@@ -28,7 +28,7 @@ class LoginViewModel {
             guard let theRes = res else {
                 return
             }
-            print("get api result: \(theRes.value())")
+
             self.reslut.value = theRes
             self.delegate?.loginComplete()
         }
