@@ -19,6 +19,7 @@ class LoginViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         view.backgroundColor = UIColor.white
+        self.title = "Login"
         
         self.view.addSubview(loginView)
         NSLayoutConstraint.activate([

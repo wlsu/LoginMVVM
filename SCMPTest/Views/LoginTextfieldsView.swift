@@ -56,18 +56,17 @@ class LoginTextFieldsView: UIView {
         emailTextfield.autocorrectionType = .no
         emailTextfield.autocapitalizationType = .none
         emailTextfield.clearButtonMode = .always
-        emailTextfield.backgroundColor = UIColor.gray
         emailTextfield.keyboardType = .emailAddress
         emailTextfield.returnKeyType = .next
-        
+        emailTextfield.attributedPlaceholder = NSAttributedString(string: "mobile number / email address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         
         pwdTextfield.delegate = self
         pwdTextfield.autocorrectionType = .no
         pwdTextfield.autocapitalizationType = .none
         pwdTextfield.clearButtonMode = .always
-        pwdTextfield.backgroundColor = UIColor.green
         pwdTextfield.isSecureTextEntry = true
         pwdTextfield.returnKeyType = .go
+        pwdTextfield.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
         
         textfieldsStack.addArrangedSubview(emailTextfield)
         textfieldsStack.addArrangedSubview(pwdTextfield)
@@ -92,6 +91,7 @@ class LoginTextFieldsView: UIView {
             case .loading:
                 self?.loginBtn.isEnabled = false
                 self?.loginBtn.setTitle("Loading", for: .normal)
+                self?.endEditing(false)
             }
         }
         

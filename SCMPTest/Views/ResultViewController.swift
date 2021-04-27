@@ -17,6 +17,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        self.title = "Result"
         view.backgroundColor = UIColor.white
         
         self.view.addSubview(resultLabel)
