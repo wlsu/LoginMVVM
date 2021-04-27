@@ -7,17 +7,22 @@
 
 import Foundation
 
-struct LoginApiRes {
-    var token: String?
-    var errorMessage: String?
+enum LoginStatus  {
+    case success(token: String)
+    case fail(message: String)
     
-    init(parameters: [String:Any]) {
-        if let token = parameters["token"] as? String {
-            self.token = token
-        }
-        
-        if let errorMessage = parameters["error"] as? String  {
-            self.errorMessage = errorMessage
+    func value() -> String {
+        switch self {
+        case .success(let token):
+            return token
+        case .fail(let message):
+            return message
         }
     }
 }
+
+enum LoadingStatus {
+    case loading
+    case complete
+}
+

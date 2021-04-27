@@ -38,7 +38,7 @@ enum ApiService {
     
     private static let loginApiString = "https://reqres.in/api/login?delay=5"
     
-    static func loginApiRequest(email: String, password: String, completion:@escaping (LoginApiRes?) -> Void   ) {
+    static func loginApiRequest(email: String, password: String, completion:@escaping (LoginStatus?) -> Void   ) {
         guard let url = URL(string: loginApiString) else {
             completion(nil)
             return
@@ -49,7 +49,18 @@ enum ApiService {
                 completion(nil)
                 return
             }
-            completion(LoginApiRes(parameters: theDict))
+            
+            if let token = theDict["token"] as? String {
+                completion(LoginStatus.success(token: token))
+                return
+            }
+            
+            if let errorMessage = theDict["error"] as? String  {
+                completion(LoginStatus.fail(message: errorMessage))
+                return
+            }
+            
+            completion(nil)
         }
     }
     
@@ -85,17 +96,30 @@ enum ApiService {
             if let data = data {
                 do {
                     let json = try JSONSerialization.jsonObject(with: data, options: [])
-                    completionHandler(json, nil)
+                    DispatchQueue.main.async {
+                        completionHandler(json, nil)
+                    }
+                    
                     
                 } catch {
-                    completionHandler(nil, SCMPApiError.parseJsonFailed)
+                    DispatchQueue.main.async {
+                        completionHandler(nil, SCMPApiError.parseJsonFailed)
+                    }
+                    
                 }
             } else if let error = error {
                 // no data, but got error
-                completionHandler(nil,error)
+                DispatchQueue.main.async {
+                    completionHandler(nil,error)
+                }
+                
             } else {
                 // no data, no error
-                completionHandler(nil, SCMPApiError.unexpected(code: -1))
+                DispatchQueue.main.async {
+                    completionHandler(nil, SCMPApiError.unexpected(code: -1))
+                }
+                
+                
             }
         }
 

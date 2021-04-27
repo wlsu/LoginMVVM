@@ -15,6 +15,14 @@ class LoginTextFieldsView: UIView {
     @UsesAutoLayout
     var loginBtn = UIButton()
     
+    @UsesAutoLayout
+    var emailTextfield = UITextField()
+    
+    @UsesAutoLayout
+    var pwdTextfield = UITextField()
+    
+    var viewModel = LoginViewModel.shared
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -43,20 +51,23 @@ class LoginTextFieldsView: UIView {
             textfieldsStack.trailingAnchor.constraint(equalTo: loginStack.trailingAnchor)
         ])
         
-        let emailTextfield = UITextField()
+        
         emailTextfield.delegate = self
         emailTextfield.autocorrectionType = .no
         emailTextfield.autocapitalizationType = .none
         emailTextfield.clearButtonMode = .always
         emailTextfield.backgroundColor = UIColor.gray
+        emailTextfield.keyboardType = .emailAddress
+        emailTextfield.returnKeyType = .next
         
         
-        let pwdTextfield = UITextField()
         pwdTextfield.delegate = self
         pwdTextfield.autocorrectionType = .no
         pwdTextfield.autocapitalizationType = .none
         pwdTextfield.clearButtonMode = .always
         pwdTextfield.backgroundColor = UIColor.green
+        pwdTextfield.isSecureTextEntry = true
+        pwdTextfield.returnKeyType = .go
         
         textfieldsStack.addArrangedSubview(emailTextfield)
         textfieldsStack.addArrangedSubview(pwdTextfield)
@@ -72,12 +83,37 @@ class LoginTextFieldsView: UIView {
             loginBtn.trailingAnchor.constraint(equalTo: loginStack.trailingAnchor)
         ])
         
+      
+        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+            switch loadingStatus {
+            case .complete:
+                self?.loginBtn.isEnabled = true
+                self?.loginBtn.setTitle("Login", for: .normal)
+            case .loading:
+                self?.loginBtn.isEnabled = false
+                self?.loginBtn.setTitle("Loading", for: .normal)
+            }
+        }
         
     }
     
     
     
     @objc func loginButtonPressed(_ sender: UIButton) {
+        
+        print("on click login button")
+        guard let email = emailTextfield.text else {
+            // trigger VC to alert
+            return
+        }
+        
+        guard let password = pwdTextfield.text else {
+            // trigger VC to alert
+            return
+        }
+        
+        viewModel.loginRequest(email: email, password: password)
+        
         
     }
     
