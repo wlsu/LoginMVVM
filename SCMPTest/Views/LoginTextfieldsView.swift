@@ -101,18 +101,7 @@ class LoginTextFieldsView: UIView {
     
     @objc func loginButtonPressed(_ sender: UIButton) {
         
-        guard let email = emailTextfield.text else {
-            // trigger VC to alert
-            return
-        }
-        
-        guard let password = pwdTextfield.text else {
-            // trigger VC to alert
-            return
-        }
-        
-        viewModel.loginRequest(email: email, password: password)
-        
+        viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
         
     }
     

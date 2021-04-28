@@ -48,5 +48,9 @@ extension LoginViewController: LoginViewModelProtocol {
         let resultVC = ResultViewController()
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
+    
+    func promptAlert(title: String?, message: String?) {
+        self.alert(title: title, message: message)
+    }
 }
 

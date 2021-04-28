@@ -9,6 +9,7 @@ import Foundation
 
 protocol LoginViewModelProtocol {
     func loginComplete()
+    func promptAlert(title: String?, message: String?)
 }
 
 class LoginViewModel {
@@ -21,7 +22,17 @@ class LoginViewModel {
     
     var loadingStatus = Box(LoadingStatus.complete)
         
-    func loginRequest(email: String, password: String) {
+    func loginRequest(email: String?, password: String?) {
+        guard let email = email, email.count > 0 else {
+            delegate?.promptAlert(title: "Please input email", message: nil)
+            return
+        }
+        
+        guard let password = password, password.count > 0 else {
+            delegate?.promptAlert(title: "Please input password", message: nil)
+            return
+        }
+        
         loadingStatus.value = .loading
         ApiService.loginApiRequest(email: email, password: password) { (res) in
             self.loadingStatus.value = .complete
