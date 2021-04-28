@@ -7,7 +7,7 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController: SCMPBaseViewController {
     
     @UsesAutoLayout
     var loginView =  LoginTextFieldsView()
@@ -27,8 +27,18 @@ class LoginViewController: UIViewController {
             loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+    
+        LoginViewModel.shared.delegate = self
         
-        LoginViewModel.shared.delegate = self        
+        
+        loginViewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+            switch loadingStatus {
+            case .complete:
+                self?.hideSpinner()
+            case .loading:
+                self?.showSpinner()
+            }
+        }
     }
 
 }

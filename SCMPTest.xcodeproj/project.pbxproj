@@ -17,9 +17,9 @@
 		3BD870A72635AADF00575E62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */; };
 		3BD870B22635AADF00575E62 /* SCMPTestTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD870B12635AADF00575E62 /* SCMPTestTests.swift */; };
 		3BD870BD2635AADF00575E62 /* SCMPTestUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3BD870BC2635AADF00575E62 /* SCMPTestUITests.swift */; };
+		901B95FD26398C260087BA63 /* SCMPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */; };
 		908F9CEA2637DE7800595A0E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */; };
 		908F9CEF2638258800595A0E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CEE2638258800595A0E /* ResultViewController.swift */; };
-		908F9CF02638258800595A0E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CEE2638258800595A0E /* ResultViewController.swift */; };
 		909C6B182636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
 		909C6B192636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
 		909C6B1A2636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
@@ -33,6 +33,7 @@
 		909C6B2E2636E2C50047FA70 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */; };
 		909C6B2F2636E2C50047FA70 /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */; };
 		909C6B3B2636E5020047FA70 /* LoginDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B3A2636E5020047FA70 /* LoginDataTests.swift */; };
+		909E516026397E360027C9BD /* SpinnerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909E515F26397E360027C9BD /* SpinnerViewController.swift */; };
 		90F2B40B26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
 		90F2B40C26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
 		90F2B40D26369464007D21CF /* LoginTextfieldsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */; };
@@ -70,6 +71,7 @@
 		3BD870B82635AADF00575E62 /* SCMPTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCMPTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD870BC2635AADF00575E62 /* SCMPTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPTestUITests.swift; sourceTree = "<group>"; };
 		3BD870BE2635AADF00575E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPBaseViewController.swift; sourceTree = "<group>"; };
 		908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		908F9CEE2638258800595A0E /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		909C6B172636B4CB0047FA70 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
@@ -77,6 +79,7 @@
 		909C6B252636DFE40047FA70 /* LoginApiRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiRes.swift; sourceTree = "<group>"; };
 		909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		909C6B3A2636E5020047FA70 /* LoginDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginDataTests.swift; sourceTree = "<group>"; };
+		909E515F26397E360027C9BD /* SpinnerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpinnerViewController.swift; sourceTree = "<group>"; };
 		90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginTextfieldsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,11 +181,22 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		909E5158263977030027C9BD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				3BD8709E2635AADC00575E62 /* LoginViewController.swift */,
+				908F9CEE2638258800595A0E /* ResultViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		90F2B3FF263688A8007D21CF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
 				909C6B172636B4CB0047FA70 /* Box.swift */,
+				901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */,
 				909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */,
+				909E515F26397E360027C9BD /* SpinnerViewController.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -206,9 +220,8 @@
 		90F2B406263689B7007D21CF /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				3BD8709E2635AADC00575E62 /* LoginViewController.swift */,
+				909E5158263977030027C9BD /* ViewControllers */,
 				90F2B40A26369464007D21CF /* LoginTextfieldsView.swift */,
-				908F9CEE2638258800595A0E /* ResultViewController.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -344,8 +357,10 @@
 			files = (
 				908F9CEA2637DE7800595A0E /* UIViewControllerExt.swift in Sources */,
 				3BD8709F2635AADC00575E62 /* LoginViewController.swift in Sources */,
+				901B95FD26398C260087BA63 /* SCMPBaseViewController.swift in Sources */,
 				909C6B262636DFE40047FA70 /* LoginApiRes.swift in Sources */,
 				3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */,
+				909E516026397E360027C9BD /* SpinnerViewController.swift in Sources */,
 				909C6B1F2636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */,
 				3B20381E2635C847003C3205 /* ApiService.swift in Sources */,
 				909C6B182636B4CB0047FA70 /* Box.swift in Sources */,
@@ -368,7 +383,6 @@
 				90F2B40C26369464007D21CF /* LoginTextfieldsView.swift in Sources */,
 				909C6B202636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */,
 				909C6B2E2636E2C50047FA70 /* LoginViewModel.swift in Sources */,
-				908F9CF02638258800595A0E /* ResultViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
