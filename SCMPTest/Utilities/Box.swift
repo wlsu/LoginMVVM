@@ -11,7 +11,7 @@ final class Box<T> {
     //1
     typealias Listener = (T) -> Void
     var listener: Listener?
-    //2
+    //2 TODO: Support multiple binding, to slove communications between VMs
     var value: T {
         didSet {
             // only 1 listener, could only 1 binging
