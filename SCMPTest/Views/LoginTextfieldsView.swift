@@ -115,10 +115,12 @@ class LoginTextFieldsView: UIView {
             textfield.keyboardType = .emailAddress
             textfield.returnKeyType = .next
             textfield.attributedPlaceholder = NSAttributedString(string: "mobile number / email address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+            textfield.accessibilityIdentifier = "loginEmailTextfield"
         case .password:
             textfield.isSecureTextEntry = true
             textfield.returnKeyType = .go
             textfield.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+            textfield.accessibilityIdentifier = "loginPasswordTextfield"
         }
     }
     
