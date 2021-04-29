@@ -17,14 +17,7 @@ class ResultViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = "Result"
-        view.backgroundColor = UIColor.white
-        
-        self.view.addSubview(resultLabel)
-        NSLayoutConstraint.activate([
-            resultLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
-        ])
+        setupView()
         
         viewModel.reslut.bind { [weak self](loginResult) in
             switch loginResult {
@@ -35,5 +28,16 @@ class ResultViewController: UIViewController {
             }
         }
         
+    }
+    
+    private func setupView() {
+        self.title = "Result"
+        view.backgroundColor = UIColor.white
+        
+        self.view.addSubview(resultLabel)
+        NSLayoutConstraint.activate([
+            resultLabel.centerYAnchor.constraint(equalTo: view.centerYAnchor),
+            resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
+        ])
     }
 }

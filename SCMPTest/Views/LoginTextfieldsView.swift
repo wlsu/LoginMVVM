@@ -53,7 +53,7 @@ class LoginTextFieldsView: UIView {
                 self?.loginBtn.setTitle("Login", for: .normal)
             case .loading:
                 self?.loginBtn.isEnabled = false
-                self?.loginBtn.setTitle("Loading", for: .normal)
+                self?.loginBtn.setTitle("Logining", for: .normal)
             }
         }
         
@@ -91,7 +91,7 @@ class LoginTextFieldsView: UIView {
         
         // Button
         loginBtn.setTitle("Login", for: UIControl.State.normal)
-        loginBtn.setTitleColor(UIColor.black, for: .normal)
+        loginBtn.setTitleColor(UIColor.white, for: .normal)
         loginBtn.addTarget(self, action: #selector(loginButtonPressed(_:)), for: UIControl.Event.touchUpInside)
         loginStack.addArrangedSubview(loginBtn)
         NSLayoutConstraint.activate([
@@ -125,6 +125,7 @@ class LoginTextFieldsView: UIView {
 
     @objc private func loginButtonPressed(_ sender: UIButton) {
         
+        self.endEditing(false)
         viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
         
     }
@@ -157,7 +158,16 @@ extension LoginTextFieldsView: UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        textField.resignFirstResponder()
+        if textField == emailTextfield {
+            pwdTextfield.becomeFirstResponder()
+        } else if textField == pwdTextfield {
+            viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
+            textField.resignFirstResponder()
+        } else {
+           // should never happen as only 2 textfields
+        }
+
+       
         return false
     }
     

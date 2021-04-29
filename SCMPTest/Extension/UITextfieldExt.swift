@@ -8,7 +8,7 @@
 import UIKit
 
 extension UITextField {
-    internal func addBottomBorder(height: CGFloat = 1.0, color: UIColor = .black) {
+    internal func addBottomBorder(height: CGFloat = 1.0, color: UIColor = .gray) {
         let borderView = UIView()
         borderView.backgroundColor = color
         borderView.translatesAutoresizingMaskIntoConstraints = false

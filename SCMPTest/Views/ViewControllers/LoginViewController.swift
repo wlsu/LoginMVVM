@@ -18,6 +18,19 @@ class LoginViewController: SCMPBaseViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         
+        setupView()
+    
+        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+            switch loadingStatus {
+            case .complete:
+                self?.hideSpinner()
+            case .loading:
+                self?.showSpinner()
+            }
+        }
+    }
+    
+    private func setupView() {
         view.backgroundColor = UIColor.white
         self.title = "Login"
         
@@ -28,15 +41,6 @@ class LoginViewController: SCMPBaseViewController {
             loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         loginView.delegate = self
-    
-        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
-            switch loadingStatus {
-            case .complete:
-                self?.hideSpinner()
-            case .loading:
-                self?.showSpinner()
-            }
-        }
     }
 
 }
