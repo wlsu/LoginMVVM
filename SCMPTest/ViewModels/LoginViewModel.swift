@@ -8,18 +8,15 @@
 import Foundation
 
 protocol LoginViewModelProtocol {
-    func loginComplete()
+    func loginComplete(result: LoginStatus)
     func promptAlert(title: String?, message: String?)
+    func updateLoadingStatus(status: LoadingStatus)
 }
 
 class LoginViewModel {
-    // User shared as this ViewModel will be used in diffrent Views' instance
-    static var shared = LoginViewModel()
     
     var delegate: LoginViewModelProtocol?
-    
-    var reslut = Box(LoginStatus.fail(message: "unknown error"))
-    
+        
     var loadingStatus = Box(LoadingStatus.complete)
         
     func loginRequest(email: String?, password: String?) {
@@ -34,14 +31,16 @@ class LoginViewModel {
         }
         
         loadingStatus.value = .loading
+        self.delegate?.updateLoadingStatus(status: .loading)
         ApiService.loginApiRequest(email: email, password: password) { (res) in
+            self.delegate?.updateLoadingStatus(status: .complete)
             self.loadingStatus.value = .complete
             guard let theRes = res else {
+                self.delegate?.promptAlert(title: "Unknow error", message: "Please try again later")
                 return
             }
 
-            self.reslut.value = theRes
-            self.delegate?.loginComplete()
+            self.delegate?.loginComplete(result: theRes)
         }
     }
     

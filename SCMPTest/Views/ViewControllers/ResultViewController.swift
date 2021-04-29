@@ -9,11 +9,11 @@ import UIKit
 
 class ResultViewController: UIViewController {
     
-    var viewModel = LoginViewModel.shared
-    
     @UsesAutoLayout
     var resultLabel = UILabel()
-
+    
+    var viewModel = ResultVCViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,20 +26,14 @@ class ResultViewController: UIViewController {
             resultLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
         
-        var resultString = ""
         viewModel.reslut.bind { [weak self](loginResult) in
             switch loginResult {
             case .success(let token):
-                resultString = "Success: \(token)"
+                self?.resultLabel.text = "Success: \(token)"
             case .fail(let message):
-                resultString = "Failed: \(message)"
+                self?.resultLabel.text = "Failed: \(message)"
             }
-            self?.resultLabel.text = resultString
         }
         
     }
-    
-
-   
-
 }

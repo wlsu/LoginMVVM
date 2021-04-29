@@ -7,10 +7,19 @@
 
 import UIKit
 
+protocol LoginViewProtocol {
+    func loginComplete(result: LoginStatus)
+    func promptAlert(title: String?, message: String?)
+    func updateLoadingStatus(status: LoadingStatus)
+}
+
 class LoginTextFieldsView: UIView {
     
     @UsesAutoLayout
     var loginStack = UIStackView()
+    
+    @UsesAutoLayout
+    var textfieldsStack = UIStackView()
     
     @UsesAutoLayout
     var loginBtn = UIButton()
@@ -21,15 +30,40 @@ class LoginTextFieldsView: UIView {
     @UsesAutoLayout
     var pwdTextfield = UITextField()
     
-    var viewModel = LoginViewModel.shared
+    var viewModel = LoginViewModel()
+    
+    var delegate: LoginViewProtocol?
+    
+    enum TextFieldType {
+        case email
+        case password
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        // setup views here
+        setupViews()
+        
+        viewModel.delegate = self
+
+        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+            switch loadingStatus {
+            case .complete:
+                self?.loginBtn.isEnabled = true
+                self?.loginBtn.setTitle("Login", for: .normal)
+            case .loading:
+                self?.loginBtn.isEnabled = false
+                self?.loginBtn.setTitle("Loading", for: .normal)
+            }
+        }
+        
+    }
+    
+    func setupViews() {
+        // loginStack: vertical stackView including textfieldsStack + login button
         loginStack.axis = .vertical
-        loginStack.alignment = .fill
         loginStack.distribution = .fillProportionally
+        loginStack.spacing = 25
         addSubview(loginStack)
         NSLayoutConstraint.activate([
             loginStack.topAnchor.constraint(equalTo: self.topAnchor),
@@ -38,35 +72,19 @@ class LoginTextFieldsView: UIView {
             loginStack.trailingAnchor.constraint(equalTo: self.trailingAnchor)
         ])
         
-        // 2 text fields stack view
-        let textfieldsStack = UIStackView()
-        textfieldsStack.distribution = .fillEqually
+        // textfieldsStack:stackView including 2 textfields
         textfieldsStack.axis = .vertical
+        textfieldsStack.distribution = .fillEqually
+        textfieldsStack.spacing = 15
         loginStack.addArrangedSubview(textfieldsStack)
-        textfieldsStack.translatesAutoresizingMaskIntoConstraints = false
-        // need this to make it works
         NSLayoutConstraint.activate([
             textfieldsStack.heightAnchor.constraint(equalToConstant: 90),
             textfieldsStack.leadingAnchor.constraint(equalTo: loginStack.leadingAnchor),
             textfieldsStack.trailingAnchor.constraint(equalTo: loginStack.trailingAnchor)
         ])
-        
-        
-        emailTextfield.delegate = self
-        emailTextfield.autocorrectionType = .no
-        emailTextfield.autocapitalizationType = .none
-        emailTextfield.clearButtonMode = .always
-        emailTextfield.keyboardType = .emailAddress
-        emailTextfield.returnKeyType = .next
-        emailTextfield.attributedPlaceholder = NSAttributedString(string: "mobile number / email address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
-        
-        pwdTextfield.delegate = self
-        pwdTextfield.autocorrectionType = .no
-        pwdTextfield.autocapitalizationType = .none
-        pwdTextfield.clearButtonMode = .always
-        pwdTextfield.isSecureTextEntry = true
-        pwdTextfield.returnKeyType = .go
-        pwdTextfield.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.black])
+
+        setupTextFields(textfieldType: .email, textfield: emailTextfield)
+        setupTextFields(textfieldType: .password, textfield: pwdTextfield)
         
         textfieldsStack.addArrangedSubview(emailTextfield)
         textfieldsStack.addArrangedSubview(pwdTextfield)
@@ -81,25 +99,31 @@ class LoginTextFieldsView: UIView {
             loginBtn.leadingAnchor.constraint(equalTo: loginStack.leadingAnchor),
             loginBtn.trailingAnchor.constraint(equalTo: loginStack.trailingAnchor)
         ])
-        
-      
-        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
-            switch loadingStatus {
-            case .complete:
-                self?.loginBtn.isEnabled = true
-                self?.loginBtn.setTitle("Login", for: .normal)
-            case .loading:
-                self?.loginBtn.isEnabled = false
-                self?.loginBtn.setTitle("Loading", for: .normal)
-                self?.endEditing(false)
-            }
-        }
-        
+        loginBtn.backgroundColor = UIColor.systemGreen
     }
     
+    private func setupTextFields(textfieldType: TextFieldType, textfield: UITextField) {
+        
+        textfield.delegate = self
+        textfield.autocorrectionType = .no
+        textfield.autocapitalizationType = .none
+        textfield.clearButtonMode = .always
+        textfield.addBottomBorder()
+        
+        switch textfieldType {
+        case .email:
+            textfield.keyboardType = .emailAddress
+            textfield.returnKeyType = .next
+            textfield.attributedPlaceholder = NSAttributedString(string: "mobile number / email address", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        case .password:
+            textfield.isSecureTextEntry = true
+            textfield.returnKeyType = .go
+            textfield.attributedPlaceholder = NSAttributedString(string: "password", attributes: [NSAttributedString.Key.foregroundColor : UIColor.lightGray])
+        }
+    }
     
-    
-    @objc func loginButtonPressed(_ sender: UIButton) {
+
+    @objc private func loginButtonPressed(_ sender: UIButton) {
         
         viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
         
@@ -110,38 +134,30 @@ class LoginTextFieldsView: UIView {
     }
 }
 
+extension LoginTextFieldsView: LoginViewModelProtocol {
+    func updateLoadingStatus(status: LoadingStatus) {
+        delegate?.updateLoadingStatus(status: status)
+    }
+    func loginComplete(result: LoginStatus) {
+        delegate?.loginComplete(result: result)
+    }
+    func promptAlert(title: String?, message: String?) {
+        delegate?.promptAlert(title: title, message: message)
+    }
+}
+
 extension LoginTextFieldsView: UITextFieldDelegate {
     @objc func textFieldContentDidChange() {
-//        contentDidChange?(textField.text ?? "")
-                
-//        if case .email = type, textField.text?.count == 0 {
-//            status = .normal
-//            UserDefaults.standard.removeObject(forKey: NSUserDefaultLastUserEmail)
-//            UserDefaults.standard.synchronize()
-//            HKTVHelper.deleteKeychainData(NSUserDefaultLastUserPassword)
-//            return
-//        }
-//
-//        if case .password = type, textField.text?.count == 0 {
-//            status = .normal
-////            HKTVHelper.deleteKeychainData(NSUserDefaultLastUserPassword)
-//            return
-//        }
-        
-//        status = .typing
     }
     
     func textFieldDidBeginEditing(_ textField: UITextField) {
-//        status = .typing
     }
     
     func textFieldDidEndEditing(_ textField: UITextField) {
-//        status = .normal
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
-//        shouldReturn?()
         return false
     }
     

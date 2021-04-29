@@ -12,7 +12,7 @@ class LoginViewController: SCMPBaseViewController {
     @UsesAutoLayout
     var loginView =  LoginTextFieldsView()
     
-    var loginViewModel = LoginViewModel.shared
+    var viewModel = LoginVCViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,11 +27,9 @@ class LoginViewController: SCMPBaseViewController {
             loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
+        loginView.delegate = self
     
-        LoginViewModel.shared.delegate = self
-        
-        
-        loginViewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
             switch loadingStatus {
             case .complete:
                 self?.hideSpinner()
@@ -43,12 +41,17 @@ class LoginViewController: SCMPBaseViewController {
 
 }
 
-extension LoginViewController: LoginViewModelProtocol {
-    func loginComplete() {
-        let resultVC = ResultViewController()
-        self.navigationController?.pushViewController(resultVC, animated: true)
+extension LoginViewController: LoginViewProtocol {
+    func updateLoadingStatus(status: LoadingStatus) {
+        viewModel.loadingStatus.value = status
     }
     
+    func loginComplete(result: LoginStatus) {
+        let resultVC = ResultViewController()
+        resultVC.viewModel.reslut.value = result
+        self.navigationController?.pushViewController(resultVC, animated: true)
+    }
+
     func promptAlert(title: String?, message: String?) {
         self.alert(title: title, message: message)
     }
