@@ -12,6 +12,8 @@ final class Box<T> {
     typealias Listener = (T) -> Void
     var listener: Listener?
     //2 TODO: Support multiple binding, to slove communications between VMs
+    // https://developer.apple.com/documentation/combine/receiving-and-handling-events-with-combine
+    // Use combine to implement subscribe/pubisher way
     var value: T {
         didSet {
             // only 1 listener, could only 1 binging
