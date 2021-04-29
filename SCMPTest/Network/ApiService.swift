@@ -59,7 +59,11 @@ enum ApiService {
         }
     }
     
-    private static func makeRequestReturnDict(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  ([String:Any]?, Error?) -> Void) {
+    
+}
+
+extension ApiService {
+    fileprivate static func makeRequestReturnDict(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  ([String:Any]?, Error?) -> Void) {
         makeRequest(url: url, method: method, parameters: parameters) { (object, error) in
             guard let theObject = object, let dict = theObject as? [String: Any] else {
                 completionHandler(nil, error)
@@ -69,7 +73,7 @@ enum ApiService {
         }
     }
     
-    private static func makeRequest(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  (Any?, Error?) -> Void) {
+    fileprivate static func makeRequest(url: URL, method:RequestType, parameters: [String:Any]?, completionHandler: @escaping  (Any?, Error?) -> Void) {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
