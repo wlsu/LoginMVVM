@@ -36,7 +36,7 @@ class LoginViewController: SCMPBaseViewController {
         
         self.view.addSubview(loginView)
         NSLayoutConstraint.activate([
-            loginView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+            loginView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
