@@ -36,8 +36,8 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
         
         setupViews()
         
-        viewModel.loadingStatus.addObserver(self) { [weak self] loadingStatus in
-            switch loadingStatus {
+        viewModel.loadingStatus.addObserver(self) { [weak self] newValue in
+            switch newValue {
             case .complete:
                 self?.loginBtn.isEnabled = true
                 self?.loginBtn.setTitle("Login", for: .normal)

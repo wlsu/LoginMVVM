@@ -17,8 +17,8 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
         // Do any additional setup after loading the view.
         setupView()
         
-        loginView.viewModel.loadingStatus.addObserver(self) { [weak self] (loadingStatus) in
-            switch loadingStatus {
+        loginView.viewModel.loadingStatus.addObserver(self) { [weak self] newValue in
+            switch newValue {
             case .complete:
                 self?.hideSpinner()
             case .loading:
@@ -35,8 +35,6 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
             resultVC.reslut = newValue
             self.navigationController?.pushViewController(resultVC, animated: true)
         }
-        
-        
         
     }
     
