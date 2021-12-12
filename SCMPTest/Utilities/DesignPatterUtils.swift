@@ -43,33 +43,23 @@ protocol ObservableProtocol {
     func notifyObservers(_ observers: [ObserverProtocol])
 }
 
-class OberserverInstance : ObserverProtocol {
-
-    var identifier: String
-    init() {
-        self.identifier = UUID().uuidString
-        print("init OberserverInstance \(self.identifier)")
-    }
-    
-    deinit {
-        print("deinit OberserverInstance \(self.identifier)")
-    }
-    
-}
-
 protocol ObserverProtocol {
-    
-    var identifier : String { get }
-
+    var identifier : Int { get }
 }
 
-extension ObserverProtocol {
-    var identifier: String {
-        get {
-            return UUID().uuidString
-        }
+extension ObserverProtocol where Self: AnyObject {
+    var identifier: Int {
+        return ObjectIdentifier(self).hashValue
     }
 }
+
+//extension Identifiable {
+//    var identifier: String {
+//        get {
+//            return UUID().uuidString
+//        }
+//    }
+//}
 
 class Observable<T> {
     
@@ -81,7 +71,7 @@ class Observable<T> {
         }
     }
     
-    var observers : [String : CompletionHandler] = [:]
+    var observers : [Int : CompletionHandler] = [:]
     
     init(value: T) {
         self.value = value
@@ -95,7 +85,7 @@ class Observable<T> {
         self.observers.removeValue(forKey: observer.identifier)
     }
     
-    func notifyObservers(_ observers: [String : CompletionHandler]) {
+    func notifyObservers(_ observers: [Int : CompletionHandler]) {
         observers.forEach({ $0.value(value) })
     }
     
