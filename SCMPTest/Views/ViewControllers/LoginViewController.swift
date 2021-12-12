@@ -27,6 +27,10 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
         }
     }
     
+    deinit {
+        LoginViewState.loadingStatus.removeObserver(self)
+    }
+    
     private func setupView() {
         view.backgroundColor = UIColor.white
         self.title = "Login"

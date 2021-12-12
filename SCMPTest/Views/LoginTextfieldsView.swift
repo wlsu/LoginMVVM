@@ -56,6 +56,10 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
         
     }
     
+    deinit {
+        LoginViewState.loadingStatus.removeObserver(self)
+    }
+    
     @objc private func loginButtonPressed(_ sender: UIButton) {
         
         self.endEditing(false)
