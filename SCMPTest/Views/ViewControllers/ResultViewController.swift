@@ -12,27 +12,26 @@ class ResultViewController: UIViewController {
     @UsesAutoLayout
     var resultLabel = UILabel()
     
-    var viewModel = ResultVCViewModel()
+    var reslut = LoginStatus.fail(message: "unknown error")
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         setupView()
         
-        viewModel.reslut.bind { [weak self](loginResult) in
-            switch loginResult {
-            case .success(let token):
-                self?.resultLabel.text = "Success: \(token)"
-            case .fail(let message):
-                self?.resultLabel.text = "Failed: \(message)"
-            }
-        }
-        
     }
     
     private func setupView() {
         self.title = "Result"
         view.backgroundColor = UIColor.white
+        
+        
+        switch reslut {
+        case .success(let token):
+            resultLabel.text = "Success: \(token)"
+        case .fail(let message):
+            resultLabel.text = "Failed: \(message)"
+        }
         
         self.view.addSubview(resultLabel)
         NSLayoutConstraint.activate([

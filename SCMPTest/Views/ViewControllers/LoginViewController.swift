@@ -7,20 +7,17 @@
 
 import UIKit
 
-class LoginViewController: SCMPBaseViewController {
+class LoginViewController: SCMPBaseViewController, ObserverProtocol {
     
     @UsesAutoLayout
     var loginView =  LoginTextFieldsView()
-    
-    var viewModel = LoginVCViewModel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         setupView()
-    
-        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+        
+        LoginViewState.loadingStatus.addObserver(self) { [weak self] (loadingStatus) in
             switch loadingStatus {
             case .complete:
                 self?.hideSpinner()
@@ -46,15 +43,12 @@ class LoginViewController: SCMPBaseViewController {
 }
 
 extension LoginViewController: LoginViewProtocol {
-    func updateLoadingStatus(status: LoadingStatus) {
-        viewModel.loadingStatus.value = status
-    }
-    
-    func loginComplete(result: LoginStatus) {
+    func resultHandler(result: LoginStatus) {
         let resultVC = ResultViewController()
-        resultVC.viewModel.reslut.value = result
+        resultVC.reslut = result
         self.navigationController?.pushViewController(resultVC, animated: true)
     }
+    
 
     func promptAlert(title: String?, message: String?) {
         self.alert(title: title, message: message)

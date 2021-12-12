@@ -8,12 +8,11 @@
 import UIKit
 
 protocol LoginViewProtocol {
-    func loginComplete(result: LoginStatus)
     func promptAlert(title: String?, message: String?)
-    func updateLoadingStatus(status: LoadingStatus)
+    func resultHandler(result: LoginStatus)
 }
 
-class LoginTextFieldsView: UIView {
+class LoginTextFieldsView: UIView, ObserverProtocol {
     
     @UsesAutoLayout
     var loginStack = UIStackView()
@@ -44,9 +43,7 @@ class LoginTextFieldsView: UIView {
         
         setupViews()
         
-        viewModel.delegate = self
-
-        viewModel.loadingStatus.bind { [weak self] (loadingStatus) in
+        LoginViewState.loadingStatus.addObserver(self) { [weak self] loadingStatus in
             switch loadingStatus {
             case .complete:
                 self?.loginBtn.isEnabled = true
@@ -57,6 +54,23 @@ class LoginTextFieldsView: UIView {
             }
         }
         
+    }
+    
+    @objc private func loginButtonPressed(_ sender: UIButton) {
+        
+        self.endEditing(false)
+        makeLoginRequest()
+    }
+    
+    func makeLoginRequest() {
+        viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text) { [weak self] alert in
+            guard let theAlert = alert else {
+                return
+            }
+            self?.delegate?.promptAlert(title: theAlert.title, message: theAlert.message)
+        } successHanler: {  [weak self] status in
+            self?.delegate?.resultHandler(result: status)
+        }
     }
     
     func setupViews() {
@@ -125,27 +139,10 @@ class LoginTextFieldsView: UIView {
     }
     
 
-    @objc private func loginButtonPressed(_ sender: UIButton) {
-        
-        self.endEditing(false)
-        viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
-        
-    }
+
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-}
-
-extension LoginTextFieldsView: LoginViewModelProtocol {
-    func updateLoadingStatus(status: LoadingStatus) {
-        delegate?.updateLoadingStatus(status: status)
-    }
-    func loginComplete(result: LoginStatus) {
-        delegate?.loginComplete(result: result)
-    }
-    func promptAlert(title: String?, message: String?) {
-        delegate?.promptAlert(title: title, message: message)
     }
 }
 
@@ -163,7 +160,7 @@ extension LoginTextFieldsView: UITextFieldDelegate {
         if textField == emailTextfield {
             pwdTextfield.becomeFirstResponder()
         } else if textField == pwdTextfield {
-            viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
+            makeLoginRequest()
             textField.resignFirstResponder()
         } else {
            // should never happen as only 2 textfields

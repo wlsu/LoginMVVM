@@ -11,8 +11,6 @@
 		3B20381F2635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
 		3B2038202635C847003C3205 /* ApiService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20381D2635C847003C3205 /* ApiService.swift */; };
 		3B20382E263A7867003C3205 /* UITextfieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20382D263A7867003C3205 /* UITextfieldExt.swift */; };
-		3B203833263A8461003C3205 /* LoginVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B203832263A8461003C3205 /* LoginVCViewModel.swift */; };
-		3B203838263A88A2003C3205 /* ResultVCViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B203837263A88A2003C3205 /* ResultVCViewModel.swift */; };
 		3B203842263AB077003C3205 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */; };
 		3B203846263AB078003C3205 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */; };
 		3B20384A263AB07B003C3205 /* UITextfieldExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3B20382D263A7867003C3205 /* UITextfieldExt.swift */; };
@@ -27,9 +25,9 @@
 		901B95FD26398C260087BA63 /* SCMPBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */; };
 		908F9CEA2637DE7800595A0E /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */; };
 		908F9CEF2638258800595A0E /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908F9CEE2638258800595A0E /* ResultViewController.swift */; };
-		909C6B182636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
-		909C6B192636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
-		909C6B1A2636B4CB0047FA70 /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* Box.swift */; };
+		909C6B182636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* DesignPatterUtils.swift */; };
+		909C6B192636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* DesignPatterUtils.swift */; };
+		909C6B1A2636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B172636B4CB0047FA70 /* DesignPatterUtils.swift */; };
 		909C6B1F2636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */; };
 		909C6B202636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */; };
 		909C6B212636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */; };
@@ -65,8 +63,6 @@
 /* Begin PBXFileReference section */
 		3B20381D2635C847003C3205 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3B20382D263A7867003C3205 /* UITextfieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExt.swift; sourceTree = "<group>"; };
-		3B203832263A8461003C3205 /* LoginVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVCViewModel.swift; sourceTree = "<group>"; };
-		3B203837263A88A2003C3205 /* ResultVCViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultVCViewModel.swift; sourceTree = "<group>"; };
 		3BD870972635AADC00575E62 /* SCMPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCMPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD8709A2635AADC00575E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD8709C2635AADC00575E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -83,7 +79,7 @@
 		901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPBaseViewController.swift; sourceTree = "<group>"; };
 		908F9CE92637DE7800595A0E /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		908F9CEE2638258800595A0E /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
-		909C6B172636B4CB0047FA70 /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
+		909C6B172636B4CB0047FA70 /* DesignPatterUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DesignPatterUtils.swift; sourceTree = "<group>"; };
 		909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AutoLayoutWrapper.swift; sourceTree = "<group>"; };
 		909C6B252636DFE40047FA70 /* LoginApiRes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginApiRes.swift; sourceTree = "<group>"; };
 		909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
@@ -151,9 +147,9 @@
 				3BD8709C2635AADC00575E62 /* SceneDelegate.swift */,
 				908F9CE82637DE5800595A0E /* Extension */,
 				90F2B3FF263688A8007D21CF /* Utilities */,
-				90F2B40126368922007D21CF /* ViewModels */,
-				90F2B400263688BD007D21CF /* Models */,
 				3B20381B2635C7C6003C3205 /* Network */,
+				90F2B400263688BD007D21CF /* Models */,
+				90F2B40126368922007D21CF /* ViewModels */,
 				90F2B406263689B7007D21CF /* Views */,
 				3BD870A32635AADF00575E62 /* Assets.xcassets */,
 				3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */,
@@ -201,7 +197,7 @@
 		90F2B3FF263688A8007D21CF /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				909C6B172636B4CB0047FA70 /* Box.swift */,
+				909C6B172636B4CB0047FA70 /* DesignPatterUtils.swift */,
 				901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */,
 				909C6B1E2636B4E60047FA70 /* AutoLayoutWrapper.swift */,
 				909E515F26397E360027C9BD /* SpinnerViewController.swift */,
@@ -221,8 +217,6 @@
 			isa = PBXGroup;
 			children = (
 				909C6B2C2636E2C50047FA70 /* LoginViewModel.swift */,
-				3B203832263A8461003C3205 /* LoginVCViewModel.swift */,
-				3B203837263A88A2003C3205 /* ResultVCViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -371,12 +365,10 @@
 				909C6B262636DFE40047FA70 /* LoginApiRes.swift in Sources */,
 				3BD8709B2635AADC00575E62 /* AppDelegate.swift in Sources */,
 				909E516026397E360027C9BD /* SpinnerViewController.swift in Sources */,
-				3B203838263A88A2003C3205 /* ResultVCViewModel.swift in Sources */,
 				909C6B1F2636B4E60047FA70 /* AutoLayoutWrapper.swift in Sources */,
 				3B20382E263A7867003C3205 /* UITextfieldExt.swift in Sources */,
 				3B20381E2635C847003C3205 /* ApiService.swift in Sources */,
-				3B203833263A8461003C3205 /* LoginVCViewModel.swift in Sources */,
-				909C6B182636B4CB0047FA70 /* Box.swift in Sources */,
+				909C6B182636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */,
 				3BD8709D2635AADC00575E62 /* SceneDelegate.swift in Sources */,
 				90F2B40B26369464007D21CF /* LoginTextfieldsView.swift in Sources */,
 				909C6B2D2636E2C50047FA70 /* LoginViewModel.swift in Sources */,
@@ -389,7 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B20381F2635C847003C3205 /* ApiService.swift in Sources */,
-				909C6B192636B4CB0047FA70 /* Box.swift in Sources */,
+				909C6B192636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */,
 				3B203842263AB077003C3205 /* UIViewControllerExt.swift in Sources */,
 				3BD870B22635AADF00575E62 /* SCMPTestTests.swift in Sources */,
 				909C6B272636DFE40047FA70 /* LoginApiRes.swift in Sources */,
@@ -405,7 +397,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3B2038202635C847003C3205 /* ApiService.swift in Sources */,
-				909C6B1A2636B4CB0047FA70 /* Box.swift in Sources */,
+				909C6B1A2636B4CB0047FA70 /* DesignPatterUtils.swift in Sources */,
 				3B203846263AB078003C3205 /* UIViewControllerExt.swift in Sources */,
 				3B20384E263AB07C003C3205 /* UITextfieldExt.swift in Sources */,
 				3BD870BD2635AADF00575E62 /* SCMPTestUITests.swift in Sources */,
