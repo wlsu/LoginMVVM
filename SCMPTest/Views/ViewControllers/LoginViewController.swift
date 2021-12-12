@@ -17,7 +17,7 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
         // Do any additional setup after loading the view.
         setupView()
         
-        LoginViewState.loadingStatus.addObserver(self) { [weak self] (loadingStatus) in
+        loginView.viewModel.loadingStatus.addObserver(self) { [weak self] (loadingStatus) in
             switch loadingStatus {
             case .complete:
                 self?.hideSpinner()
@@ -25,10 +25,23 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
                 self?.showSpinner()
             }
         }
+        
+        loginView.viewModel.alertContent.addObserver(self) { [unowned self] newValue in
+            self.alert(title: newValue.title, message: newValue.message)
+        }
+        
+        loginView.viewModel.apiResult.addObserver(self) { [unowned self] newValue in
+            let resultVC = ResultViewController()
+            resultVC.reslut = newValue
+            self.navigationController?.pushViewController(resultVC, animated: true)
+        }
+        
+        
+        
     }
     
     deinit {
-        LoginViewState.loadingStatus.removeObserver(self)
+        loginView.viewModel.loadingStatus.removeObserver(self)
     }
     
     private func setupView() {
@@ -41,21 +54,9 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
             loginView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 50),
             loginView.centerXAnchor.constraint(equalTo: view.centerXAnchor)
         ])
-        loginView.delegate = self
     }
 
 }
 
-extension LoginViewController: LoginViewProtocol {
-    func resultHandler(result: LoginStatus) {
-        let resultVC = ResultViewController()
-        resultVC.reslut = result
-        self.navigationController?.pushViewController(resultVC, animated: true)
-    }
-    
 
-    func promptAlert(title: String?, message: String?) {
-        self.alert(title: title, message: message)
-    }
-}
 

@@ -7,11 +7,6 @@
 
 import UIKit
 
-protocol LoginViewProtocol {
-    func promptAlert(title: String?, message: String?)
-    func resultHandler(result: LoginStatus)
-}
-
 class LoginTextFieldsView: UIView, ObserverProtocol {
     
     @UsesAutoLayout
@@ -31,8 +26,6 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
     
     var viewModel = LoginViewModel()
     
-    var delegate: LoginViewProtocol?
-    
     enum TextFieldType {
         case email
         case password
@@ -43,7 +36,7 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
         
         setupViews()
         
-        LoginViewState.loadingStatus.addObserver(self) { [weak self] loadingStatus in
+        viewModel.loadingStatus.addObserver(self) { [weak self] loadingStatus in
             switch loadingStatus {
             case .complete:
                 self?.loginBtn.isEnabled = true
@@ -57,7 +50,7 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
     }
     
     deinit {
-        LoginViewState.loadingStatus.removeObserver(self)
+        viewModel.loadingStatus.removeObserver(self)
     }
     
     @objc private func loginButtonPressed(_ sender: UIButton) {
@@ -67,14 +60,7 @@ class LoginTextFieldsView: UIView, ObserverProtocol {
     }
     
     func makeLoginRequest() {
-        viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text) { [weak self] alert in
-            guard let theAlert = alert else {
-                return
-            }
-            self?.delegate?.promptAlert(title: theAlert.title, message: theAlert.message)
-        } successHanler: {  [weak self] status in
-            self?.delegate?.resultHandler(result: status)
-        }
+        viewModel.loginRequest(email: emailTextfield.text, password: pwdTextfield.text)
     }
     
     func setupViews() {
