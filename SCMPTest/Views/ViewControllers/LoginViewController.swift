@@ -17,12 +17,12 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
         // Do any additional setup after loading the view.
         setupView()
         
-        loginView.viewModel.loadingStatus.addObserver(self) { [weak self] newValue in
+        loginView.viewModel.loadingStatus.addObserver(self) { [unowned self] newValue in
             switch newValue {
             case .complete:
-                self?.hideSpinner()
+                self.hideSpinner()
             case .loading:
-                self?.showSpinner()
+                self.showSpinner()
             }
         }
         
