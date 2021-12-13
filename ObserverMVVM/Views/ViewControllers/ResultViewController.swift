@@ -12,8 +12,6 @@ class ResultViewController: UIViewController, ObserverProtocol {
     @UsesAutoLayout
     var resultLabel = UILabel()
     
-    var reslut = LoginStatus.fail(message: "unknown error")
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
