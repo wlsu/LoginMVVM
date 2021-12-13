@@ -16,11 +16,22 @@ class ResultViewController: UIViewController, ObserverProtocol {
         super.viewDidLoad()
 
         setupView()
-        
-        // Attempted to read an unowned reference but the object was already deallocated
+
         LoginState.apiResult.addObserver(self) { [unowned self ] newValue in
             self.renderResultLabel(reslut: newValue)
         }
+        /*
+         addObserver self actually not holding self instance, just use it's id
+         Crash: Attempted to read an unowned reference but the object was already deallocated
+         
+         As:
+         when back to login page, this result vc can be deaaloced, as nothing holding it, here add observer self, just use it id
+         if not remove observer, then when login again, it get result then, will triger completion block,
+         but that time still hv not init result vc, which caused, crash.
+         
+         so when deinit removeObserver fixed the issue
+         
+         */
         
     }
     
