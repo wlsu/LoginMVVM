@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class ResultViewController: UIViewController, ObserverProtocol {
     
     @UsesAutoLayout
     var resultLabel = UILabel()
@@ -19,19 +19,33 @@ class ResultViewController: UIViewController {
 
         setupView()
         
+        // Attempted to read an unowned reference but the object was already deallocated
+        LoginState.apiResult.addObserver(self) { [unowned self ] newValue in
+            self.renderResultLabel(reslut: newValue)
+        }
+        
     }
     
-    private func setupView() {
-        self.title = "Result"
-        view.backgroundColor = UIColor.white
-        
-        
+    deinit {
+        LoginState.apiResult.removeObserver(self)
+        print("deinited ResultViewController")
+    }
+    
+    func renderResultLabel(reslut: LoginStatus) {
         switch reslut {
         case .success(let token):
             resultLabel.text = "Success: \(token)"
         case .fail(let message):
             resultLabel.text = "Failed: \(message)"
         }
+    }
+    
+    private func setupView() {
+        self.title = "Result"
+        view.backgroundColor = UIColor.white
+        
+        renderResultLabel(reslut: LoginState.apiResult.value)
+        
         
         self.view.addSubview(resultLabel)
         NSLayoutConstraint.activate([

@@ -7,9 +7,12 @@
 
 import Foundation
 
+enum LoginState {
+    static var apiResult = Observable(value: LoginStatus.fail(message: "failed"))
+}
+
 class LoginViewModel {
     var alertContent: Observable<(title: String?, message: String?)>  = Observable(value: (title: "", message: ""))
-    var apiResult = Observable(value: LoginStatus.fail(message: "failed"))
     var loadingStatus = Observable(value: LoadingStatus.complete)
     
     
@@ -35,7 +38,7 @@ class LoginViewModel {
                 return
             }
             
-            self.apiResult.value = theRes
+            LoginState.apiResult.value = theRes
             
         }
     }

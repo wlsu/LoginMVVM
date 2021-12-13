@@ -30,9 +30,8 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
             self.alert(title: newValue.title, message: newValue.message)
         }
         
-        loginView.viewModel.apiResult.addObserver(self) { [unowned self] newValue in
+        LoginState.apiResult.addObserver(self) { [unowned self] newValue in
             let resultVC = ResultViewController()
-            resultVC.reslut = newValue
             self.navigationController?.pushViewController(resultVC, animated: true)
         }
         
@@ -40,6 +39,8 @@ class LoginViewController: SCMPBaseViewController, ObserverProtocol {
     
     deinit {
         loginView.viewModel.loadingStatus.removeObserver(self)
+        loginView.viewModel.alertContent.removeObserver(self)
+        LoginState.apiResult.removeObserver(self)
     }
     
     private func setupView() {
