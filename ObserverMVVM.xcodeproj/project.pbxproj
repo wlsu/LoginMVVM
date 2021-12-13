@@ -63,17 +63,17 @@
 /* Begin PBXFileReference section */
 		3B20381D2635C847003C3205 /* ApiService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiService.swift; sourceTree = "<group>"; };
 		3B20382D263A7867003C3205 /* UITextfieldExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextfieldExt.swift; sourceTree = "<group>"; };
-		3BD870972635AADC00575E62 /* SCMPTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SCMPTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD870972635AADC00575E62 /* ObserverMVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ObserverMVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD8709A2635AADC00575E62 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3BD8709C2635AADC00575E62 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		3BD8709E2635AADC00575E62 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		3BD870A32635AADF00575E62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		3BD870A62635AADF00575E62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		3BD870A82635AADF00575E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3BD870AD2635AADF00575E62 /* SCMPTestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCMPTestTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD870AD2635AADF00575E62 /* ObserverMVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObserverMVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD870B12635AADF00575E62 /* SCMPTestTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPTestTests.swift; sourceTree = "<group>"; };
 		3BD870B32635AADF00575E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		3BD870B82635AADF00575E62 /* SCMPTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SCMPTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		3BD870B82635AADF00575E62 /* ObserverMVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ObserverMVVMUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		3BD870BC2635AADF00575E62 /* SCMPTestUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPTestUITests.swift; sourceTree = "<group>"; };
 		3BD870BE2635AADF00575E62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		901B95FC26398C260087BA63 /* SCMPBaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SCMPBaseViewController.swift; sourceTree = "<group>"; };
@@ -123,9 +123,9 @@
 		3BD8708E2635AADC00575E62 = {
 			isa = PBXGroup;
 			children = (
-				3BD870992635AADC00575E62 /* SCMPTest */,
-				3BD870B02635AADF00575E62 /* SCMPTestTests */,
-				3BD870BB2635AADF00575E62 /* SCMPTestUITests */,
+				3BD870992635AADC00575E62 /* ObserverMVVM */,
+				3BD870B02635AADF00575E62 /* ObserverMVVMTests */,
+				3BD870BB2635AADF00575E62 /* ObserverMVVMUITests */,
 				3BD870982635AADC00575E62 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -133,14 +133,14 @@
 		3BD870982635AADC00575E62 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				3BD870972635AADC00575E62 /* SCMPTest.app */,
-				3BD870AD2635AADF00575E62 /* SCMPTestTests.xctest */,
-				3BD870B82635AADF00575E62 /* SCMPTestUITests.xctest */,
+				3BD870972635AADC00575E62 /* ObserverMVVM.app */,
+				3BD870AD2635AADF00575E62 /* ObserverMVVMTests.xctest */,
+				3BD870B82635AADF00575E62 /* ObserverMVVMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		3BD870992635AADC00575E62 /* SCMPTest */ = {
+		3BD870992635AADC00575E62 /* ObserverMVVM */ = {
 			isa = PBXGroup;
 			children = (
 				3BD8709A2635AADC00575E62 /* AppDelegate.swift */,
@@ -155,25 +155,25 @@
 				3BD870A52635AADF00575E62 /* LaunchScreen.storyboard */,
 				3BD870A82635AADF00575E62 /* Info.plist */,
 			);
-			path = SCMPTest;
+			path = ObserverMVVM;
 			sourceTree = "<group>";
 		};
-		3BD870B02635AADF00575E62 /* SCMPTestTests */ = {
+		3BD870B02635AADF00575E62 /* ObserverMVVMTests */ = {
 			isa = PBXGroup;
 			children = (
 				3BD870B12635AADF00575E62 /* SCMPTestTests.swift */,
 				3BD870B32635AADF00575E62 /* Info.plist */,
 			);
-			path = SCMPTestTests;
+			path = ObserverMVVMTests;
 			sourceTree = "<group>";
 		};
-		3BD870BB2635AADF00575E62 /* SCMPTestUITests */ = {
+		3BD870BB2635AADF00575E62 /* ObserverMVVMUITests */ = {
 			isa = PBXGroup;
 			children = (
 				3BD870BC2635AADF00575E62 /* SCMPTestUITests.swift */,
 				3BD870BE2635AADF00575E62 /* Info.plist */,
 			);
-			path = SCMPTestUITests;
+			path = ObserverMVVMUITests;
 			sourceTree = "<group>";
 		};
 		908F9CE82637DE5800595A0E /* Extension */ = {
@@ -233,9 +233,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3BD870962635AADC00575E62 /* SCMPTest */ = {
+		3BD870962635AADC00575E62 /* ObserverMVVM */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BD870C12635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTest" */;
+			buildConfigurationList = 3BD870C12635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVM" */;
 			buildPhases = (
 				3BD870932635AADC00575E62 /* Sources */,
 				3BD870942635AADC00575E62 /* Frameworks */,
@@ -245,14 +245,14 @@
 			);
 			dependencies = (
 			);
-			name = SCMPTest;
+			name = ObserverMVVM;
 			productName = SCMPTest;
-			productReference = 3BD870972635AADC00575E62 /* SCMPTest.app */;
+			productReference = 3BD870972635AADC00575E62 /* ObserverMVVM.app */;
 			productType = "com.apple.product-type.application";
 		};
-		3BD870AC2635AADF00575E62 /* SCMPTestTests */ = {
+		3BD870AC2635AADF00575E62 /* ObserverMVVMTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BD870C42635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTestTests" */;
+			buildConfigurationList = 3BD870C42635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVMTests" */;
 			buildPhases = (
 				3BD870A92635AADF00575E62 /* Sources */,
 				3BD870AA2635AADF00575E62 /* Frameworks */,
@@ -263,14 +263,14 @@
 			dependencies = (
 				3BD870AF2635AADF00575E62 /* PBXTargetDependency */,
 			);
-			name = SCMPTestTests;
+			name = ObserverMVVMTests;
 			productName = SCMPTestTests;
-			productReference = 3BD870AD2635AADF00575E62 /* SCMPTestTests.xctest */;
+			productReference = 3BD870AD2635AADF00575E62 /* ObserverMVVMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		3BD870B72635AADF00575E62 /* SCMPTestUITests */ = {
+		3BD870B72635AADF00575E62 /* ObserverMVVMUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3BD870C72635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTestUITests" */;
+			buildConfigurationList = 3BD870C72635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVMUITests" */;
 			buildPhases = (
 				3BD870B42635AADF00575E62 /* Sources */,
 				3BD870B52635AADF00575E62 /* Frameworks */,
@@ -281,9 +281,9 @@
 			dependencies = (
 				3BD870BA2635AADF00575E62 /* PBXTargetDependency */,
 			);
-			name = SCMPTestUITests;
+			name = ObserverMVVMUITests;
 			productName = SCMPTestUITests;
-			productReference = 3BD870B82635AADF00575E62 /* SCMPTestUITests.xctest */;
+			productReference = 3BD870B82635AADF00575E62 /* ObserverMVVMUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -308,7 +308,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 3BD870922635AADC00575E62 /* Build configuration list for PBXProject "SCMPTest" */;
+			buildConfigurationList = 3BD870922635AADC00575E62 /* Build configuration list for PBXProject "ObserverMVVM" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -321,9 +321,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3BD870962635AADC00575E62 /* SCMPTest */,
-				3BD870AC2635AADF00575E62 /* SCMPTestTests */,
-				3BD870B72635AADF00575E62 /* SCMPTestUITests */,
+				3BD870962635AADC00575E62 /* ObserverMVVM */,
+				3BD870AC2635AADF00575E62 /* ObserverMVVMTests */,
+				3BD870B72635AADF00575E62 /* ObserverMVVMUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -413,12 +413,12 @@
 /* Begin PBXTargetDependency section */
 		3BD870AF2635AADF00575E62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3BD870962635AADC00575E62 /* SCMPTest */;
+			target = 3BD870962635AADC00575E62 /* ObserverMVVM */;
 			targetProxy = 3BD870AE2635AADF00575E62 /* PBXContainerItemProxy */;
 		};
 		3BD870BA2635AADF00575E62 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 3BD870962635AADC00575E62 /* SCMPTest */;
+			target = 3BD870962635AADC00575E62 /* ObserverMVVM */;
 			targetProxy = 3BD870B92635AADF00575E62 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -558,7 +558,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C28QGZS8NA;
-				INFOPLIST_FILE = SCMPTest/Info.plist;
+				INFOPLIST_FILE = ObserverMVVM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -578,7 +578,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = C28QGZS8NA;
-				INFOPLIST_FILE = SCMPTest/Info.plist;
+				INFOPLIST_FILE = ObserverMVVM/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -609,7 +609,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCMPTest.app/SCMPTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObserverMVVM.app/ObserverMVVM";
 			};
 			name = Debug;
 		};
@@ -631,7 +631,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SCMPTest.app/SCMPTest";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ObserverMVVM.app/ObserverMVVM";
 			};
 			name = Release;
 		};
@@ -678,7 +678,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		3BD870922635AADC00575E62 /* Build configuration list for PBXProject "SCMPTest" */ = {
+		3BD870922635AADC00575E62 /* Build configuration list for PBXProject "ObserverMVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BD870BF2635AADF00575E62 /* Debug */,
@@ -687,7 +687,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BD870C12635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTest" */ = {
+		3BD870C12635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVM" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BD870C22635AADF00575E62 /* Debug */,
@@ -696,7 +696,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BD870C42635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTestTests" */ = {
+		3BD870C42635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVMTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BD870C52635AADF00575E62 /* Debug */,
@@ -705,7 +705,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3BD870C72635AADF00575E62 /* Build configuration list for PBXNativeTarget "SCMPTestUITests" */ = {
+		3BD870C72635AADF00575E62 /* Build configuration list for PBXNativeTarget "ObserverMVVMUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3BD870C82635AADF00575E62 /* Debug */,
